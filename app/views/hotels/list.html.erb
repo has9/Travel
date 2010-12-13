@@ -1,0 +1,40 @@
+<% form_tag({:action => :list}, {:name => 'hotels_form'}) do %>
+<TABLE class = "list">
+  <CAPTION>hotel</CAPTION>
+  <%= button_to_function('Поиск',
+       "document.hotels_form.action = '#{url_for(:action => :list)}';
+        document.hotels_form.submit();")  %>
+  <%= button_to_function('Создать',
+            "document.hotels_form.action = '#{url_for(:action => :create2)}';
+             document.hotels_form.submit();")  %>
+    <THEAD>
+      <% unless @errors.empty? %>
+      <TR>
+        <TD class = "error" colspan = "2">
+          <%= display_error() %>
+        </TD>
+      </TR>
+      <% end %>
+      <TR>
+        <TH>Название</TH>
+        <TH>Курорт</TH>
+        <TH>Тип</TH>
+        <TH>Звезда</TH>
+
+
+      </TR>
+    </THEAD>
+    <TBODY>
+      <% @items.each do |p| %>
+      <TR>
+        <TD><%= p.name %></TD>
+        <TD><%= p.resort %></TD>
+        <TD><%= p.tip %></TD>
+        <TD><%= p.rank %></TD>
+
+        
+      </TR>
+      <% end %>
+    </TBODY>
+</TABLE
+<% end %>

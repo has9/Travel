@@ -1,0 +1,39 @@
+<TABLE class = "list">
+  <CAPTION>Персонал</CAPTION>
+  <% if @items.size == 0 %>
+    <%=  empty_list() %>
+  <% else %>
+    <THEAD>
+      <TR>
+        <TH>Фамилия</TH>
+        <TH>Имя</TH>
+        <TH>Отчество</TH>
+        <TH>Адрес</TH>
+        <TH>Телефон</TH>
+        <TH>Квалификация</TH>
+        <TH>Отдел</TH>
+        <TH>Должность</TH>
+        <TH>Контракт</TH>
+        <% if @inline_actions.size > 0  %>
+        <TH>Действия</TH>
+        <% end %>
+      </TR>
+    </THEAD>
+    <TBODY>
+      <% @items.each do |p| %>
+      <TR>
+        <TD><%= p.l_name %></TD>
+        <TD><%= p.f_name %></TD>
+        <TD><%= p.s_name %></TD>
+        <TD><%= p.address %></TD>
+        <TD><%= p.telefon %></TD>
+        <TD><%= p.kvalifikacia %></TD>
+        <TD><%= p.otdel %></TD>
+        <TD><%= p.dolgnoct %></TD>
+        <TD><%= p.kontrakt %></TD>
+        <%= inline_menu(p) %>
+      </TR>
+      <% end %>
+    </TBODY>
+  <% end %>
+</TABLE>

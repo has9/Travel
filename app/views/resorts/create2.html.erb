@@ -1,0 +1,37 @@
+<%= form_tag({:action => :create}, {:name => 'resorts_form'}) do %>
+<table class = "edit">
+  <caption>Создание нового курорта</caption>
+  <thead>
+    <tr>
+      <th colspan = "2">
+        <%= submit_tag('Создать')  %>
+        <%= button_to_function('Отмена',
+          "document.resorts_form.action = '#{url_for(:action => :list)}';
+           document.resorts_form.submit();")  %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>name:</th>
+      <td><%= text_field_tag('resort[name]', '', :size => 20)  %></td>
+    </tr>
+    <tr>
+      <th>state:</th>
+      <td><%= text_field_tag('resort[state]', '', :size => 20)  %></td>
+    </tr>
+     <tr>
+      <th>tip:</th>
+      <td><%= text_field_tag('resort[tip]', '', :size => 20)  %></td>
+    </tr>
+    <tr>
+      <th>rank:</th>
+      <td><%= text_field_tag('resort[rank]', '', :size => 20)  %></td>
+    </tr>
+  
+  </tbody>
+</table>
+<% end %>
+
+
+

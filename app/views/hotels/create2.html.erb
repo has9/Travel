@@ -1,0 +1,41 @@
+<%= form_tag({:action => :create}, {:name => 'hotels_form'}) do %>
+<table class = "edit">
+  <caption>Создание отеля</caption>
+  <thead>
+    <tr>
+      <th colspan = "2">
+        <%= submit_tag('Создать')  %>
+        <%= button_to_function('Отмена',
+          "document.hotels_form.action = '#{url_for(:action => :list)}';
+           document.hotels_form.submit();")  %>
+        <%= button_to_function('Поиск',
+             "document.hotels_form.action = '#{url_for(:action => :list)}';
+              document.hotels_form.submit();")  %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Название:</th>
+      <td><%= text_field_tag('hotel[name]', '', :size => 20)  %></td>
+    </tr>
+    <tr>
+      <th>Курорт:</th>
+      <td><%= text_field_tag('hotel[resort]', '', :size => 20)  %></td>
+    </tr>
+     <tr>
+      <th>Тип:</th>
+      <td><%= text_field_tag('hotel[tip]', '', :size => 20)  %></td>
+    </tr>
+    <tr>
+      <th>Звезда:</th>
+      <td><%= text_field_tag('hotel[rank]', '', :size => 20)  %></td>
+    </tr>
+    <p>
+        <%= f.label "Раздел:" %><br />
+        <%= f.select 'section_id', @sections %>
+      </p>
+  
+  </tbody>
+</table>
+<% end %>
